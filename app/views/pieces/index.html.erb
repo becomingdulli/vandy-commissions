@@ -1,1 +1,9 @@
-<h1>Welcome to my Amazing Commissions Page</h1>
+<% @pieces.each do |piece| %>
+  <div>
+    <h1><%= piece.title %></h1><br />
+    <i><%= piece.name %></i><br />
+    <p><%= piece.description %></p><br />
+  </div>
+
+  <hr />
+<% end %>
