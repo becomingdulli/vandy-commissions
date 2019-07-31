@@ -22,7 +22,7 @@
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <%= link_to 'Contribute', '#', data: {toggle: 'modal', target: '#myModal'} %>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" href="#">Disabled</a>
@@ -36,5 +36,32 @@
     </nav>
 
     <%= yield %>
+
+
+
+ <!-- Modal -->
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">×</span>
+         </button>
+         <h4 class="modal-title" id="myModalLabel">Contribute Your Quote</h4>
+        </div>
+        <%= simple_form_for Piece.new do |f| %>
+          <div class="modal-body">
+            <%= f.input :title %>
+            <%= f.input :name %>
+            <%= f.input :description %>
+         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit 'Create', class: 'btn btn-danger' %>
+        </div>
+       <% end %>
+      </div>
+    </div>
+    </div>
   </body>
 </html>
